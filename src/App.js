@@ -78,22 +78,23 @@ git push -u origin main : master - > master 성공
 
 ★수정발생: git add . (전체하는게 편함 )
 git commit -m "second commit" 
-git remote add origin https://github.com/ohsoomansour/testMovie.git > error: remote origin already exists.> git remote rm origin
+git remote add origin https://github.com/ohsoomansour/testMovie.git 
+> error: remote origin already exists.> git remote rm origin
 git push -u origin main
 
 ★gh-pages
 1.npm i gh pages > !오류 npm ERR! Cannot read property 'pickAlgorithm' of null > install -g npm@7.24.2
 2."scripts": {"deploy": "gh-pages -d build", "predeploy": "npm run build" }
  > 의미는 깃헙페이지를 실행시키고 디렉토리에서 build를 가져간다 predeploy: deplopy 되기전에 build를 자동으로 실행 최적화
-   "homepage": "https://ohsoomansour.github.io/Bitcoin/"
+   "homepage": "https://ohsoomansour.github.io/testMovie/"
 3.npm run build > npm run deploy (published 성공!)
 4. !Your site is published at https://ohsoomansour.github.io/Bitcoin/ > √ 체크표시로 바꾸는 법
   Settings > Pages > [Source] - Branch: gh-pages 변경 > (다시 로그인) > (싸이트 접속 x)
   > Your site is published at https://ohsoomansour.github.io/Bitcoin/index.html
+5. 간혹 404 에러가 뜨거나 흰 화면만 지속적으로 보이는 경우는 검사창을 열어 에러가 있는지 확인해보고 코드를 수정후
+>  다시 전체 코드 commit, push 후 재배포 하거나 길게는 하루정도 기다려보면 사이트가 다시 잘 작동하는 것을 볼 수 있다.   
 */
 
-import { useState, useEffect } from "react";
-import Movie from "./components/Movie"; 
 import {
   BrowserRouter,
   Routes,
@@ -105,9 +106,8 @@ import Detail from "./routes/Detail";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
-        
         <Route path="/" element={<Home />} />
         <Route path= "movie/:id" element={<Detail />} /> 
       </Routes>
