@@ -73,7 +73,7 @@ git status : 내가 올릴려고 하는 파일들 나열 index.html등 > git에 
 git commit -m "first commit" : 히스토리를 만듬 > 최종본이라고 볼 수있음
 git branch -M main 
 git remote add origin https://github.com/ohsoomansour/testMovie.git
-git remote -v : 위 연결고리 확인용 
+git remote -v : 위 연결고리 확인용  
 git push -u origin main : master - > master 성공
 
 ★수정발생: git add . (전체하는게 편함 )
@@ -93,6 +93,8 @@ git push -u origin main
   > Your site is published at https://ohsoomansour.github.io/Bitcoin/index.html
 5. 간혹 404 에러가 뜨거나 흰 화면만 지속적으로 보이는 경우는 검사창을 열어 에러가 있는지 확인해보고 코드를 수정후
 >  다시 전체 코드 commit, push 후 재배포 하거나 길게는 하루정도 기다려보면 사이트가 다시 잘 작동하는 것을 볼 수 있다.   
+6. 추측: npm install react-router-dom@6 6버전 설치 후 문제 발생 
+published 후 빈페이지>  https://choar816.tistory.com/159
 */
 
 import {
@@ -106,12 +108,12 @@ import Detail from "./routes/Detail";
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path= "movie/:id" element={<Detail />} /> 
       </Routes>
-    </BrowserRouter>
+    
   )
    
 }
