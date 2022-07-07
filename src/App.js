@@ -77,10 +77,12 @@ git remote -v : 위 연결고리 확인용
 git push -u origin main : master - > master 성공
 
 ★수정발생: git add . (전체하는게 편함 )
+git status 
+git add. 
 git commit -m "second commit" 
-git remote add origin https://github.com/ohsoomansour/testMovie.git 
-> error: remote origin already exists.> git remote rm origin
 git push -u origin main
+※git remote add origin https://github.com/ohsoomansour/testMovie.git 
+> error: remote origin already exists.> git remote rm origin
 
 ★gh-pages
 1.npm i gh pages > !오류 npm ERR! Cannot read property 'pickAlgorithm' of null > install -g npm@7.24.2
@@ -108,12 +110,12 @@ import Detail from "./routes/Detail";
 
 function App() {
   return (
-    
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path= "movie/:id" element={<Detail />} /> 
       </Routes>
-    
+    </BrowserRouter> 
   )
    
 }
